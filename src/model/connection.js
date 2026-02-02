@@ -7,14 +7,16 @@ class Connection {
     }
 
     init() {
-        this.sequelize = new Sequelize({
-            host: process.env.PG_HOST,
-            database: process.env.PG_DB,
-            username: process.env.PG_USER,
-            password: process.env.PG_PASSWORD,
-            dialect: 'postgres',
-            logging: true
-        });
+        this.sequelize = new Sequelize(
+            process.env.PG_DB,
+            process.env.PG_USER,
+            process.env.PG_PASSWORD,
+            {
+                host: process.env.PG_HOST,
+                dialect: 'postgres',
+                logging: true
+            }
+        );
     }
 }
 

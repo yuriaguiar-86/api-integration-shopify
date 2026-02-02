@@ -5,29 +5,42 @@ class Operation {
     constructor() {
         this.model = connection.sequelize.define('operations', {
             id: {
-                primaryKey: true,
-                autoIncrement: false,
                 type: DataTypes.UUID,
                 defaultValue: DataTypes.UUIDV4,
-                allowNull: false,
+                primaryKey: true,
             },
             name: {
                 type: DataTypes.STRING,
                 allowNull: false,
             },
-            store_name: {
+            white_store: {
                 type: DataTypes.STRING,
                 allowNull: false,
                 unique: true,
             },
-            client: {
+            white_client: {
                 type: DataTypes.STRING,
                 allowNull: false,
             },
-            secret: {
+            white_secret: {
                 type: DataTypes.STRING,
                 allowNull: false,
             },
+            black_store: {
+                type: DataTypes.STRING,
+                allowNull: false,
+                unique: true,
+            },
+            black_client: {
+                type: DataTypes.STRING,
+                allowNull: false,
+            },
+            black_secret: {
+                type: DataTypes.STRING,
+                allowNull: false,
+            },
+        }, {
+            timestamps: true,
         });
     }
 }
